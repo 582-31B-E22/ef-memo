@@ -1,8 +1,8 @@
 <?php
 class AccesBd 
 {
-    private PDO $pdo; // Objet de connexion PDO
-    private PDOStatement $rp; // Objet de requête paramétrée PDO
+    private $pdo; // Objet de connexion PDO
+    private $rp; // Objet de requête paramétrée PDO
     private $erreur = null;
 
     /**
@@ -37,7 +37,7 @@ class AccesBd
      *              passer à la requête au moment de son exécution
      * @return void
      */
-    private function soumettre(string $req, array $params) : void 
+    private function soumettre($req, $params) 
     {
         // [MODIF HORS COURS]
         // On gère les exceptions reliées à la requête MySQL
@@ -60,7 +60,7 @@ class AccesBd
      * 
      * @return object[] Tableau d'objets représentants les enregistrements
      */
-    protected function lireTout(string $req, array $params=[]) : array
+    protected function lireTout($req, $params=[])
     {
         $this->soumettre($req, $params);
         return $this->rp->fetchAll();
@@ -75,7 +75,7 @@ class AccesBd
      * 
      * @return object Objet représentant l'enregistrement retourné
      */
-    protected function lireUn(string $req, array $params=[]) : object | bool
+    protected function lireUn($req, $params=[])
     {
         $this->soumettre($req, $params);
         return $this->rp->fetch();
@@ -89,7 +89,7 @@ class AccesBd
      *              passer à la requête au moment de son exécution
      * @return int Identifiant de l'enregistrement ajouté, ou false
      */
-    protected function creer(string $req, array $params=[]) : mixed 
+    protected function creer($req, $params=[]) 
     {
         $this->soumettre($req, $params);
         // [MODIF HORS COURS]
@@ -108,7 +108,7 @@ class AccesBd
      *              passer à la requête au moment de son exécution
      * @return int Le nombre d'enregistrements modifiés
      */
-    protected function modifier(string $req, array $params=[])
+    protected function modifier($req, $params=[])
     {
         $this->soumettre($req, $params);
         // [MODIF HORS COURS]
@@ -127,7 +127,7 @@ class AccesBd
      *              passer à la requête au moment de son exécution
      * @return int Le nombre d'enregistrements supprimés
      */
-    protected function supprimer(string $req, array $params=[])
+    protected function supprimer($req, $params=[])
     {
         // Simplement faire appel à la fonction modifier 
         // (puisque c'est la même implémentation)
