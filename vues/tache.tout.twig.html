@@ -1,0 +1,25 @@
+{% extends "base.twig.html" %}
+{% block main %}
+<div class="page-taches">
+    <form method="post" action="tache/ajouter" autocomplete="off">
+        <input required pattern=".*\S{2,}.*" autofocus class="quoi-faire" type="text" name="tac_texte" placeholder="Tâche à accomplir ...">
+    </form>
+    <div class="filtres">
+        <a href="tache/tout?etat=1">Complétées</a>
+        <a href="tache/tout?etat=0">Non-complétées</a>
+        <a href="tache/tout">Toutes</a>
+    </div>
+    <ul class="liste-taches">
+        <li class="accomplie">
+            <span class="coche"><a href="tache/basculer?id=1" title="Cliquez pour faire basculer l'état de cette tâche."><img src="ressources/images/coche.svg" alt=""></a></span>
+            <span class="texte">Acheter du lait</span>
+            <span class="ajout">25 août 2022, 15:23:22</span>
+        </li>
+        <li class="">
+            <span class="coche"><a href="tache/basculer?id=2" title="Cliquez pour faire basculer l'état de cette tâche."><img src="ressources/images/coche.svg" alt=""></a></span>
+            <span class="texte">Remettre le TP #2</span>
+            <span class="ajout">20 août 2022, 09:08:58</span>
+        </li>
+    </ul>
+</div>
+{% endblock %}
