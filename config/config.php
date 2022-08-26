@@ -1,6 +1,6 @@
 <?php
 // URL de base du serveur
-const BASE_SERVEUR = 'http://127.0.0.1/memo-php7/';
+const BASE_SERVEUR = 'http://localhost:8080/memo/';
 
 // Config de la BD
 const BD_HOTE = 'localhost';
