@@ -1,6 +1,5 @@
 {
     "require": {
-        "twig/twig": "^3.4",
-        "symfony/validator": "^6.0"
+        "twig/twig": "2.15.2"
     }
 }

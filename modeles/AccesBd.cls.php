@@ -15,8 +15,6 @@ class AccesBd
             $options = [
                         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ
                     ];
-            // [MODIF HORS COURS]
-            // On gère les exceptions reliées à la connexion BD
             try {
                 $this->pdo = new PDO("mysql:host=".BD_HOTE."; dbname=".BD_NOM."; charset=utf8",
                     BD_UTIL, BD_MDP, $options); 
